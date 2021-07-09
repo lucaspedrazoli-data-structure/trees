@@ -36,6 +36,6 @@ class TreeNode<T> {
       visit(node)
       node.children.forEach { queue.enqueue($0) }
     }
-}
+  }
 }
 ```
