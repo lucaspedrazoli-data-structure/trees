@@ -27,5 +27,15 @@ class TreeNode<T> {
       $0.forEachDepthFirst(visit: visit)
     }
   }
+  
+  func forEachLevelOrder(visit: (TreeNode) -> Void) {
+    visit(self)
+    var queue = Queue<TreeNode>()
+    children.forEach { queue.enqueue($0) }
+    while let node = queue.dequeue() {
+      visit(node)
+      node.children.forEach { queue.enqueue($0) }
+    }
+}
 }
 ```
