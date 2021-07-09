@@ -37,5 +37,15 @@ class TreeNode<T> {
       node.children.forEach { queue.enqueue($0) }
     }
   }
+  
+  public func search(_ value: T) -> TreeNode? {
+    var result: TreeNode?
+    forEachLevelOrder { node in
+      if node.value == value {
+        result = node
+      }
+    }
+    return result
+  }
 }
 ```
