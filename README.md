@@ -49,3 +49,35 @@ class TreeNode<T> {
   }
 }
 ```
+
+*Example*
+
+```
+struct Person {
+
+  enum Role {
+    case president, chief, leader, teamMember
+  }
+
+  let role: Role
+}
+
+
+class TreeNode {
+  var value: Person
+  var children: [TreeNode] = []
+
+  init(value: Person) {
+    self.value = value
+  }
+
+  func add(_ child: TreeNode) {
+    children.append(child)
+  }
+}
+
+let root = TreeNode(value: Person(role: .president))
+let chief = TreeNode(value: Person(role: .chief))
+root.add(chief)
+
+```
